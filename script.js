@@ -21,17 +21,26 @@ document
 
 function value() {
 
-  var getNumberOfSymbvol = function() {   
-      return document.querySelector('input[type="search"]').value.length         
+  var input = document.querySelector('input[type="search"]')
+  var text = " this your length"
+  var resultId = document.getElementById('result')
+
+  var getNumberOfSymbvol = function() {
+   this.res = input // this.res - is diferent 
+      return this.res.value.length
+         
   }
 
  var apendRes = function () {
-    document.addEventListener('keypress', function todoList(event) {
+    document.addEventListener('keypress', function(event) {
       if (event.keyCode === 13) {
-          var input = getNumberOfSymbvol()
-           var text = " this your length of text"
-          document.getElementById('result').innerHTML = input + text 
-          document.getElementById('todoInput').value = ''
+          this.res = resultId
+          this.input = input
+
+          this.number = getNumberOfSymbvol()
+          this.text = text
+          this.res.innerHTML = this.number + this.text 
+          this.input.value = ''
       }
     }, false)
   }
