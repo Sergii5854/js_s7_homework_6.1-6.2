@@ -19,22 +19,24 @@ document
 
 /////
 
-function value() {  
- function getNumberOfSymbvol() {    
-      return document.getElementById('todoInput').value.length  
-  }
- var result = getNumberOfSymbvol()
+function value() {
 
-   function apendRes() {
-        document.addEventListener('keypress', function todoList (event) {
-               if (event.keyCode == 13) {
-                //var input = document.getElementById('todoInput').value.length
-                var input = getNumberOfSymbvol()
-                document.getElementById('result').innerHTML = input   
-                document.getElementById('todoInput').value =''
-            }
-        }, false)
-    }
-   apendRes()
+  var getNumberOfSymbvol = function() {   
+      return document.querySelector('input[type="search"]').value.length         
+  }
+
+ var apendRes = function () {
+    document.addEventListener('keypress', function todoList(event) {
+      if (event.keyCode === 13) {
+          var input = getNumberOfSymbvol()
+           var text = " this your length of text"
+          document.getElementById('result').innerHTML = input + text 
+          document.getElementById('todoInput').value = ''
+      }
+    }, false)
+  }
+
+  apendRes()
 }
+
 value()
